@@ -62,13 +62,13 @@ foreach ($navItems as &$item) {
     </div>
 
     <?php
-    // PHP code to handle form submission
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // Mock user data validation for demonstration
+    
         if (!empty($username) && !empty($email) && !empty($password)) {
             $message = "Sign up successful! Welcome, $username.";
         } else {
