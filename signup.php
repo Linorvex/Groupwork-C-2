@@ -50,7 +50,9 @@ foreach ($navItems as &$item) {
         <?php if(isset($message)) { echo "<div class='success'>$message</div>"; } ?>
         <?php if(isset($error)) { echo "<div class='error'>$error</div>"; } ?>
         <form action="" method="post">
-
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
 
