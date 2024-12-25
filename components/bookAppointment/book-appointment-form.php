@@ -60,7 +60,7 @@ $doctorName = $_SESSION['doctorName'] ?? '';
     <p><strong>Doctor Name:</strong> <?php echo $doctorName; ?></p>
   </div>
   <button class="btn">
-    <a href="http://localhost/C-2-Groupwork/">Go Home</a>
+    <a href="http://localhost/Groupwork-C-2/index.php">Go Home</a>
   </button>
 
   <!-- Bootstrap JS -->
