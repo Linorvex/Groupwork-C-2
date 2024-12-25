@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -36,60 +37,44 @@
   <link href="css/responsive.css" rel="stylesheet" />
 
 </head>
-
-<body class="sub_page">
-
-  <div class="hero_area">
-    <!-- header section strats -->
-   <?php
+<?php
     include './components/header/header.php';
 foreach ($navItems as &$item) {
     $item['active'] = ($item['label'] === 'Home');
 }
     ?>
-    <!-- end header section -->
-  </div>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <?php if(isset($message)) { echo "<div class='success'>$message</div>"; } ?>
+        <?php if(isset($error)) { echo "<div class='error'>$error</div>"; } ?>
+        <form action="" method="post">
 
-  <!-- team section -->
-   <?php include "./components/doctorSection/doctorSection.php";?>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
 
- 
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
 
-  <!-- end team section -->
-
-
-  <!-- info section --> <!-- Saba's Work -->
-  <?php 
-     include ('./components/footer/footerSection.php');
-   ?>
-  <!-- end info_section --> <!-- Saba's Work -->
-
-
-  <!-- footer section -->
-  <footer class="footer_section">
-    <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
-      </p>
+            <button type="submit">Sign Up</button>
+        </form>
     </div>
-  </footer>
-  <!-- footer section -->
 
-  <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
-  <!-- nice select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
-  <!-- owl slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <!-- datepicker -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-  <!-- custom js -->
-  <script src="js/custom.js"></script>
+    <?php
+    // PHP code to handle form submission
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-
+        // Mock user data validation for demonstration
+        if (!empty($username) && !empty($email) && !empty($password)) {
+            $message = "Sign up successful! Welcome, $username.";
+        } else {
+            $error = "All fields are required.";
+        }
+    }
+    ?>
 </body>
-
 </html>

@@ -37,59 +37,42 @@
 
 </head>
 
-<body class="sub_page">
-
-  <div class="hero_area">
-    <!-- header section strats -->
-   <?php
+<?php
     include './components/header/header.php';
 foreach ($navItems as &$item) {
     $item['active'] = ($item['label'] === 'Home');
 }
     ?>
-    <!-- end header section -->
-  </div>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <?php if(isset($error)) { echo "<div class='error'>$error</div>"; } ?>
+        <form action="" method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
 
-  <!-- team section -->
-   <?php include "./components/doctorSection/doctorSection.php";?>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
 
- 
-
-  <!-- end team section -->
-
-
-  <!-- info section --> <!-- Saba's Work -->
-  <?php 
-     include ('./components/footer/footerSection.php');
-   ?>
-  <!-- end info_section --> <!-- Saba's Work -->
-
-
-  <!-- footer section -->
-  <footer class="footer_section">
-    <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
-      </p>
+            <button type="submit">Login</button>
+        </form>
     </div>
-  </footer>
-  <!-- footer section -->
+    <?php
 
-  <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
-  <!-- nice select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
-  <!-- owl slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <!-- datepicker -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-  <!-- custom js -->
-  <script src="js/custom.js"></script>
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
+        $mockUser = 'admin';
+        $mockPass = 'password123';
 
+        if ($username === $mockUser && $password === $mockPass) {
+            echo "<script>alert('Login successful!');</script>";
+        } else {
+            $error = "Invalid username or password.";
+        }
+    }
+    ?>
 </body>
-
 </html>
+

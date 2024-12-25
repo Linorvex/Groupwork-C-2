@@ -46,7 +46,7 @@ include './components/header/header.php';
 foreach ($navItems as &$item) {
     $item['active'] = ($item['label'] === 'Home');
 }
-?>
+    ?>
     <!-- end header section -->
     <!-- slider section (Vakho) -->
     <?php include './components/slider/Slider_section.php';

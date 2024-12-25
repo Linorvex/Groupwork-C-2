@@ -42,7 +42,12 @@
 
   <div class="hero_area">
     <!-- header section strats -->
- <?php include "./components/header/header.php";?>
+    <?php
+include './components/header/header.php';
+foreach ($navItems as &$item) {
+    $item['active'] = ($item['label'] === 'Home');
+}
+    ?>
  
     <!-- end header section -->
   </div>

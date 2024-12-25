@@ -1,5 +1,4 @@
 <?php
-// Dynamic data for the header
 $contactInfo = [
     'phone' => '+01 123455678990',
     'email' => 'demo@gmail.com',
